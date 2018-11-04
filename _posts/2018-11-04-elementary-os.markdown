@@ -1,5 +1,5 @@
 ---
-layout: link
+layout: post
 title: "Elementary OS"
 date: 2018-11-04
 ---
