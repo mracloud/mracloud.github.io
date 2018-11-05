@@ -9,21 +9,19 @@ title: Alpers Log
     {% for post in paginator.posts %}
       <li>
         <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
-        <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+        <h3>  {% if post.external-url %}
+  <a class="post-link" href="{{ post.external-url }}">
+    {{ post.title }}
+  </a>
+{% else %}
+  <a href="{{ post.url | prepend: site.baseurl }}">
+    {{ post.title }}
+  </a>
+{% endif %}</h3>
         <p>{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html }}{% endif %}</p>
       </li>
     {% endfor %}
   
-  {% if post.external-url %}
-  <a href="{{ post.external-url }}">
-    {{ post.title }}
-  </a>
-{% else %}
-  <a href="{{ post.url }}">
-    {{ post.title }}
-  </a>
-{% endif %}
-    
   </ul>
     
   <!-- Pagination links -->
